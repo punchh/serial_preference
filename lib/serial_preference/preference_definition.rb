@@ -80,7 +80,7 @@ module SerialPreference
     end
 
     def column_type(type)
-      if greater_or_equal_rails_70?
+      if greater_or_equal_rails_60?
         cast_type = case type
         when :boolean, :integer, :float, :decimal
           ActiveRecord::Type.const_get(type.to_s.titleize).new
@@ -116,8 +116,8 @@ module SerialPreference
       ActiveRecord::VERSION::MAJOR > 4 || (ActiveRecord::VERSION::MAJOR == 4 && ActiveRecord::VERSION::MINOR == 2)
     end
 
-    def greater_or_equal_rails_70?
-      ActiveRecord::VERSION::MAJOR > 7 || (ActiveRecord::VERSION::MAJOR == 7 && ActiveRecord::VERSION::MINOR == 0)
+    def greater_or_equal_rails_60?
+      ActiveRecord::VERSION::MAJOR > 6 || (ActiveRecord::VERSION::MAJOR == 6 && ActiveRecord::VERSION::MINOR >= 0)
     end
   end
 end
