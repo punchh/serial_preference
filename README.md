@@ -17,7 +17,7 @@ and other niceties.
 
 Scratching my own itch.
 
-## Rails 7 changes
+## Rails 6 & 7 changes
 
 For boolean fields default value should be given as `"true"` `"false"` with quotes
 
