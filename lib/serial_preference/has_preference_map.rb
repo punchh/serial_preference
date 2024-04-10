@@ -32,7 +32,11 @@ module SerialPreference
       private
 
       def build_preference_definitions
-        serialize self._preferences_attribute, Hash
+        if Rails.version.starts_with?('7')
+          serialize self._preferences_attribute, coder: YAML, type: Hash
+        else
+          serialize self._preferences_attribute, Hash
+        end
 
         _preference_map.all_preference_definitions.each do |preference|
 
