@@ -32,7 +32,7 @@ module SerialPreference
       private
 
       def build_preference_definitions
-        if Rails.version.starts_with?('7.1')
+        if Rails.version.starts_with?('7') || Rails.version.starts_with?('8')
           serialize self._preferences_attribute, coder: YAML, type: Hash
         else
           serialize self._preferences_attribute, Hash
